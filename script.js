@@ -10,22 +10,21 @@ function showInstructions() {
 }
 
 function showHome() {
-    document.getElementById}
-    function checkQuiz() {
-        const incorrectAnswers = ["question1", "question2"];
+    document.getElementById}function checkQuiz() {
+        const incorrectAnswers = ["question1"];
         let correct = true;
-    }
+    
         incorrectAnswers.forEach(answer => {
             const checkbox = document.querySelector(`input[name="${answer}"]`);
-            if (!checkbox.checked) {
+            if (checkbox.checked) {
                 correct = false;
             }
         });
     
-        const correctAnswers = ["question3", "question4"];
+        const correctAnswers = ["question2", "question3", "question4"];
         correctAnswers.forEach(answer => {
             const checkbox = document.querySelector(`input[name="${answer}"]`);
-            if (checkbox.checked) {
+            if (!checkbox.checked) {
                 correct = false;
             }
         });
@@ -39,6 +38,7 @@ function showHome() {
         } else {
             resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
         }
+    }    
     function checkConspiracy() {
         const correctAnswer = "effets secondaires";  // Un des arguments souvent mentionnés
         const userAnswer = document.getElementById('conspiracy-input').value.toLowerCase();
