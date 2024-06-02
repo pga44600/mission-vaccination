@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mission Vaccination : Échappez aux Complots !</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="home-screen">
+            <h1>Mission Vaccination : Échappez aux Complots !</h1>
+            <button onclick="startGame()">Commencer</button>
+            <button onclick="showInstructions()">Instructions</button>
+        </div>
+        <div id="instruction-screen" style="display: none;">
+            <h2>Instructions</h2>
+            <p>Résolvez les énigmes pour démasquer les théories du complot et découvrir la vérité sur les vaccins. Utilisez les indices pour avancer dans le jeu.</p>
+            <button onclick="showHome()">Retour</button>
+        </div>
+        <div id="game-screen" style="display: none;">
+            <div id="story-intro">
+                <h2>Introduction</h2>
+                <p>Vous êtes un détective spécialisé dans la détection des complots autour des vaccins. Votre mission est de découvrir la vérité en résolvant des énigmes dans divers environnements.</p>
+                <button onclick="startMission()">Commencer la Mission</button>
+            </div>
+            <div id="mission1" style="display: none;">
+                <h2>Mission 1 : Le Bureau du Professeur</h2>
+                <p>Vous êtes dans le bureau du professeur de biologie. Trouvez la clé de son coffre-fort où il cache des informations cruciales.</p>
+                <div id="puzzle-container">
+                    <!-- Puzzle elements here -->
+                </div>
+            </div>
+        </div>
+        <div id="result-screen" style="display: none;">
+            <h2>Mission Accomplie !</h2>
+            <p>Vous avez démasqué les complots et découvert la vérité sur les vaccins.</p>
+            <button onclick="showHome()">Rejouer</button>
+            <p>Pour en savoir plus sur les vaccins, visitez <a href="https://www.who.int/fr" target="_blank">OMS</a>.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
