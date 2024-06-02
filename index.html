@@ -1,102 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mission Vaccination : Échappez aux Complots !</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu sur les Vaccins</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <div id="game-container">
-        <div id="home-screen">
-            <h1>Mission Vaccination : Échappez aux Complots !</h1>
-            <button onclick="startGame()">Commencer</button>
-            <button onclick="showInstructions()">Instructions</button>
-        </div>
-        <div id="instruction-screen" style="display: none;">
-            <h2>Instructions</h2>
-            <p>Résolvez les énigmes pour démasquer les théories du complot et découvrir la vérité sur les vaccins. Utilisez les indices pour avancer dans le jeu.</p>
-            <button onclick="showHome()">Retour</button>
-        </div>
-        <div id="game-screen" style="display: none;">
-            <div id="story-intro">
-                <h2>Introduction</h2>
-                <p>Vous êtes un détective spécialisé dans la détection des complots autour des vaccins. Votre mission est de découvrir la vérité en résolvant des énigmes dans divers environnements.</p>
-                <button onclick="startMission()">Commencer la Mission</button>
-            </div>
-            <iv id="mission1" style="display: none;">
-                <h2>Mission 1 : Démasquer les Fausses Informations</h2>
-                <p>Vous avez découvert une publication en ligne contenant des informations douteuses sur les vaccins. Identifiez les affirmations fausses pour les signaler.</p>
-                <div id="puzzle-container">
-                    <p>Parmi les affirmations suivantes, lesquelles sont fausses ?</p>
-                    <form id="quiz-form">
-                        <label>
-                            <input type="checkbox" name="question1"> Les vaccins modifient l'ADN des individus vaccinés.
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="question2"> Les vaccins contre le COVID-19 contiennent des puces électroniques pour suivre les gens.
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="question3"> Les vaccins contre le COVID-19 ont été approuvés après des essais cliniques rigoureux.
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="question4"> Les vaccins sont une méthode efficace pour prévenir les maladies infectieuses.
-                        </label><br>
-                        <button type="button" onclick="checkQuiz()">Vérifier</button>
-                        <p id="quiz-result"></p>
-                    </form>d
-                </div>
-            </div>
-            <div id="mission2" style="display: none;">
-                <h2>Mission 2 : Analyser une Conspiration</h2>
-                <p>Vous avez trouvé un forum où une théorie de conspiration est discutée. Répondez correctement aux questions suivantes pour la réfuter.</p>
-                <div id="puzzle-container">
-                    <p>Quelle est l'une des raisons pour lesquelles les gens pensent que les vaccins sont dangereux ?</p>
-                    <input type="text" id="conspiracy-input">
-                    <button onclick="checkConspiracy()">Vérifier</button>
-                    <p id="conspiracy-result"></p>
-                </div>
-            </div>
-            <div id="mission3" style="display: none;">
-                <h2>Mission 3 : Identifier les Sources Fiables</h2>
-                <p>Vous devez identifier quelles sources d'information sont fiables et lesquelles ne le sont pas.</p>
-                <div id="puzzle-container">
-                    <p>Parmi les sources suivantes, lesquelles sont fiables pour des informations sur les vaccins ?</p>
-                    <form id="source-form">
-                        <label>
-                            <input type="checkbox" name="source1"> Organisation Mondiale de la Santé (OMS)
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="source2"> Un blog anonyme sur Internet
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="source3"> Ministère de la Santé
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="source4"> Un post sur les réseaux sociaux sans sources
-                        </label><br>
-                        <button type="button" onclick="checkSources()">Vérifier</button>
-                        <p id="source-result"></p>
-                    </form>
-                </div>
-            </div>
-            <div id="mission4" style="display: none;">
-                <h2>Mission 4 : Comprendre le Fonctionnement des Vaccins</h2>
-                <p>Pour réfuter les fausses informations, il est important de comprendre comment les vaccins fonctionnent. Répondez à cette question clé.</p>
-                <div id="puzzle-container">
-                    <p>Quel est le principe de base du fonctionnement des vaccins ?</p>
-                    <input type="text" id="vaccine-input">
-                    <button onclick="checkVaccine()">Vérifier</button>
-                    <p id="vaccine-result"></p>
-                </div>
-            </div>                        
-        </div>
-        <div id="result-screen" style="display: none;">
-            <h2>Mission Accomplie !</h2>
-            <p>Vous avez démasqué les complots et découvert la vérité sur les vaccins.</p>
-            <button onclick="showHome()">Rejouer</button>
-            <p>Pour en savoir plus sur les vaccins, visitez <a href="https://www.who.int/fr" target="_blank">OMS</a>.</p>
+
+<!-- Écran d'accueil -->
+<div id="home-screen">
+    <h1>Jeu sur les Vaccins</h1>
+    <button id="start-game-button">Commencer le Jeu</button>
+</div>
+
+<!-- Écran de jeu -->
+<div id="game-screen" style="display: none;">
+    <div id="mission1">
+        <h2>Mission 1 : Démasquer les Fausses Informations</h2>
+        <p>Vous avez découvert une publication en ligne contenant des informations douteuses sur les vaccins. Identifiez les affirmations fausses pour les signaler.</p>
+        <div id="puzzle-container">
+            <p>Parmi les affirmations suivantes, lesquelles sont fausses ?</p>
+            <form id="quiz-form">
+                <label>
+                    <input type="checkbox" name="question1"> Les vaccins modifient l'ADN des individus vaccinés.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="question2"> Les vaccins contre le COVID-19 contiennent des puces électroniques pour suivre les gens.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="question3"> Les vaccins contre le COVID-19 ont été approuvés après des essais cliniques rigoureux.
+                </label><br>
+                <label>
+                    <input type="checkbox" name="question4"> Les vaccins sont une méthode efficace pour prévenir les maladies infectieuses.
+                </label><br>
+                <button type="button" id="check-quiz-button">Vérifier</button>
+            </form>
+            <p id="quiz-result"></p>
         </div>
     </div>
-    <script src="script.js"></script>
+
+    <div id="mission2" style="display: none;">
+        <h2>Mission 2 : Identifier les Théories de Conspiration</h2>
+        <p>Entrez un argument souvent utilisé dans les théories de conspiration sur les vaccins :</p>
+        <input type="text" id="conspiracy-input">
+        <button type="button" id="check-conspiracy-button">Vérifier</button>
+        <p id="conspiracy-result"></p>
+    </div>
+
+    <div id="mission3" style="display: none;">
+        <h2>Mission 3 : Trouver les Sources Fiables</h2>
+        <p>Identifiez les sources fiables parmi les options suivantes :</p>
+        <form id="sources-form">
+            <label>
+                <input type="checkbox" name="source1"> Source A (Fiable)
+            </label><br>
+            <label>
+                <input type="checkbox" name="source2"> Source B (Non fiable)
+            </label><br>
+            <label>
+                <input type="checkbox" name="source3"> Source C (Fiable)
+            </label><br>
+            <label>
+                <input type="checkbox" name="source4"> Source D (Non fiable)
+            </label><br>
+            <button type="button" id="check-sources-button">Vérifier</button>
+        </form>
+        <p id="source-result"></p>
+    </div>
+
+    <div id="mission4" style="display: none;">
+        <h2>Mission 4 : Comprendre le Fonctionnement des Vaccins</h2>
+        <p>Expliquez comment fonctionnent les vaccins :</p>
+        <input type="text" id="vaccine-input">
+        <button type="button" id="check-vaccine-button">Vérifier</button>
+        <p id="vaccine-result"></p>
+    </div>
+</div>
+
+<!-- Écran de résultat -->
+<div id="result-screen" style="display: none;">
+    <h2>Résultat</h2>
+    <p id="result-message"></p>
+    <button id="next-mission-button">Mission Suivante</button>
+</div>
+
+<script src="scripts.js"></script>
+
 </body>
 </html>

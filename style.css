@@ -1,26 +1,62 @@
+/* Styles CSS */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
     text-align: center;
-    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
-#game-container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h1, h2 {
+    color: #2c3e50;
 }
 
 button {
+    background-color: #3498db;
+    color: white;
+    border: none;
     padding: 10px 20px;
-    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
     font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-#puzzle-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+button:hover {
+    background-color: #2980b9;
+}
+
+#home-screen, #instruction-screen, #game-screen, #result-screen {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+}
+
+input[type="checkbox"], input[type="text"] {
+    margin-right: 10px;
+}
+
+#quiz-form, #sources-form {
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#quiz-result, #conspiracy-result, #source-result, #vaccine-result {
+    margin-top: 20px;
+    font-weight: bold;
 }
