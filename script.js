@@ -1,20 +1,13 @@
 function startGame() {
-    document.getElementById('home-screen').style.display = 'none';
-    document.getElementById('instruction-screen').style.display = 'none';
-    document.getElementById('game-screen').style.display = 'block';
-    document.getElementById('mission1').style.display = 'block';
+    window.location.href = 'mission1.html';
 }
 
 function showInstructions() {
-    document.getElementById('home-screen').style.display = 'none';
-    document.getElementById('instruction-screen').style.display = 'block';
+    window.location.href = 'instructions.html';
 }
 
 function showHome() {
-    document.getElementById('game-screen').style.display = 'none';
-    document.getElementById('instruction-screen').style.display = 'none';
-    document.getElementById('result-screen').style.display = 'none';
-    document.getElementById('home-screen').style.display = 'block';
+    window.location.href = 'index.html';
 }
 
 function checkQuiz() {
@@ -39,22 +32,20 @@ function checkQuiz() {
     const resultElement = document.getElementById('quiz-result');
     if (correct) {
         resultElement.innerText = "Bien joué ! Vous avez identifié toutes les fausses informations.";
-        document.getElementById('mission1').style.display = 'none';
-        document.getElementById('mission2').style.display = 'block'; // Préparez la prochaine mission
+        window.location.href = 'mission2.html';
     } else {
         resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
     }
 }
 
 function checkConspiracy() {
-    const correctAnswer = "effets secondaires";  // Un des arguments souvent mentionnés
+    const correctAnswer = "effets secondaires";
     const userAnswer = document.getElementById('conspiracy-input').value.toLowerCase();
     const resultElement = document.getElementById('conspiracy-result');
 
     if (userAnswer.includes(correctAnswer)) {
         resultElement.innerText = "Correct ! Les effets secondaires sont souvent exagérés dans les théories de conspiration.";
-        document.getElementById('mission2').style.display = 'none';
-        document.getElementById('mission3').style.display = 'block'; // Préparez la prochaine mission
+        window.location.href = 'mission3.html';
     } else {
         resultElement.innerText = "Incorrect. Réessayez.";
     }
@@ -81,30 +72,21 @@ function checkSources() {
 
     const resultElement = document.getElementById('source-result');
     if (correct) {
-        resultElement.innerText = "Bien joué ! Vous avez identifié toutes les sources fiables.";
-        document.getElementById('mission3').style.display = 'none';
-        document.getElementById('mission4').style.display = 'block'; // Préparez la prochaine mission
+        resultElement.innerText = "Excellent ! Vous avez identifié les sources fiables.";
+        window.location.href = 'mission4.html';
     } else {
         resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
     }
 }
 
 function checkVaccine() {
-    const correctAnswer = "stimule le système immunitaire";
+    const correctAnswer = "stimulation du système immunitaire";
     const userAnswer = document.getElementById('vaccine-input').value.toLowerCase();
     const resultElement = document.getElementById('vaccine-result');
 
     if (userAnswer.includes(correctAnswer)) {
-        resultElement.innerText = "Correct ! Les vaccins stimulent le système immunitaire pour prévenir les maladies.";
-        document.getElementById('mission4').style.display = 'none';
-        showResult("Félicitations ! Vous avez complété toutes les missions !");
+        resultElement.innerText = "Correct ! Les vaccins fonctionnent en stimulant le système immunitaire pour qu'il reconnaisse et combatte les agents pathogènes.";
     } else {
         resultElement.innerText = "Incorrect. Réessayez.";
     }
-}
-
-function showResult(message) {
-    document.getElementById('game-screen').style.display = 'none';
-    document.getElementById('result-message').innerText = message;
-    document.getElementById('result-screen').style.display = 'block';
 }

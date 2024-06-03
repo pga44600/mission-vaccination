@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="mission1">
+        <h2>Mission 1 : Démasquer les Fausses Informations</h2>
+        <p>Identifiez les affirmations fausses pour les signaler.</p>
+        <form id="quiz-form">
+            <label>
+                <input type="checkbox" name="question1"> Les vaccins modifient l'ADN des individus vaccinés.
+            </label><br>
+            <label>
+                <input type="checkbox" name="question2"> Les vaccins contre le COVID-19 contiennent des puces électroniques pour suivre les gens.
+            </label><br>
+            <label>
+                <input type="checkbox" name="question3"> Les vaccins contre le COVID-19 ont été approuvés après des essais cliniques rigoureux.
+            </label><br>
+            <label>
+                <input type="checkbox" name="question4"> Les vaccins sont une méthode efficace pour prévenir les maladies infectieuses.
+            </label><br>
+            <button type="button" onclick="checkQuiz()">Vérifier</button>
+            <p id="quiz-result"></p>
+        </form>
+        <a href="mission2.html">Mission suivante</a>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
