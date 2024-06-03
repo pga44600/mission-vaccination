@@ -17,14 +17,14 @@ function checkQuiz() {
 
     incorrectAnswers.forEach(answer => {
         const checkbox = document.querySelector(`input[name="${answer}"]`);
-        if (!checkbox.checked) {
+        if (checkbox.checked) { 
             correct = false;
         }
     });
 
     correctAnswers.forEach(answer => {
         const checkbox = document.querySelector(`input[name="${answer}"]`);
-        if (checkbox.checked) {
+        if (!checkbox.checked) { 
             correct = false;
         }
     });
@@ -32,24 +32,29 @@ function checkQuiz() {
     const resultElement = document.getElementById('quiz-result');
     if (correct) {
         resultElement.innerText = "Bien joué ! Vous avez identifié toutes les fausses informations.";
-        window.location.href = 'mission2.html';
+        setTimeout(function() {
+            window.location.href = 'mission2.html'; 
+			}, 3500);
     } else {
         resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
     }
 }
 
 function checkConspiracy() {
-    const correctAnswer = "effets secondaires";
+    const correctAnswers = ["effets secondaires", "effet secondaire", "effets secondaire","effet secondaires"];
     const userAnswer = document.getElementById('conspiracy-input').value.toLowerCase();
     const resultElement = document.getElementById('conspiracy-result');
 
-    if (userAnswer.includes(correctAnswer)) {
+    if (correctAnswers.includes(userAnswer)) {
         resultElement.innerText = "Correct ! Les effets secondaires sont souvent exagérés dans les théories de conspiration.";
-        window.location.href = 'mission3.html';
+        setTimeout(function() {
+            window.location.href = 'mission3.html'; 
+			}, 3500);
     } else {
         resultElement.innerText = "Incorrect. Réessayez.";
     }
 }
+
 
 function checkSources() {
     const correctSources = ["source1", "source3"];
@@ -86,6 +91,9 @@ function checkVaccine() {
 
     if (userAnswer.includes(correctAnswer)) {
         resultElement.innerText = "Correct ! Les vaccins fonctionnent en stimulant le système immunitaire pour qu'il reconnaisse et combatte les agents pathogènes.";
+		setTimeout(function() {
+            window.location.href = 'victoire.html'; 
+			}, 3500);
     } else {
         resultElement.innerText = "Incorrect. Réessayez.";
     }
