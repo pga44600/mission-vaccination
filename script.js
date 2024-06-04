@@ -41,7 +41,7 @@ function checkQuiz() {
 }
 
 function checkConspiracy() {
-    const correctAnswers = ["effets secondaires", "effet secondaire", "effets secondaire","effet secondaires"];
+    const correctAnswers = ["effets secondaires", "effet secondaire", "effets secondaire","effet secondaires","puce 5G","puce","puce électronique","puce de tracage","virus inventé pour exterminer une partie de la population","puce de traçage"];
     const userAnswer = document.getElementById('conspiracy-input').value.toLowerCase();
     const resultElement = document.getElementById('conspiracy-result');
 
@@ -54,7 +54,6 @@ function checkConspiracy() {
         resultElement.innerText = "Incorrect. Réessayez.";
     }
 }
-
 
 function checkSources() {
     const correctSources = ["source1", "source3"];
@@ -74,27 +73,57 @@ function checkSources() {
             correct = false;
         }
     });
-
-    const resultElement = document.getElementById('source-result');
-    if (correct) {
+    const resultElement = document.getElementById('résultats des sources');
+    if (correctAnswers.includes(userAnswer)) {
         resultElement.innerText = "Excellent ! Vous avez identifié les sources fiables.";
-        window.location.href = 'mission4.html';
+        setTimeout(function() {
+            window.location.href = 'mission4.html'; 
+			}, 3500);
     } else {
-        resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
+        resultElement.innerText = "Incorrect. Réessayez.";
     }
 }
 
 function checkVaccine() {
-    const correctAnswer = "stimulation du système immunitaire";
+    const correctAnswer = ["le système immunitaire", "Le système immunitaire"];
     const userAnswer = document.getElementById('vaccine-input').value.toLowerCase();
     const resultElement = document.getElementById('vaccine-result');
 
     if (userAnswer.includes(correctAnswer)) {
         resultElement.innerText = "Correct ! Les vaccins fonctionnent en stimulant le système immunitaire pour qu'il reconnaisse et combatte les agents pathogènes.";
 		setTimeout(function() {
-            window.location.href = 'victoire.html'; 
+            window.location.href = 'mission5.html'; 
 			}, 3500);
     } else {
         resultElement.innerText = "Incorrect. Réessayez.";
+    }
+}
+function checkResponse() {
+    const incorrectAnswers = ["question1", "question3", "question4"];
+    const correctAnswers = "question3";
+    let correct = true;
+
+    incorrectAnswers.forEach(answer => {
+        const checkbox = document.querySelector(`input[name="${answer}"]`);
+        if (checkbox.checked) { 
+            correct = false;
+        }
+    });
+
+    correctAnswers.forEach(answer => {
+        const checkbox = document.querySelector(`input[name="${answer}"]`);
+        if (!checkbox.checked) { 
+            correct = false;
+        }
+    });
+
+    const resultElement = document.getElementById('quiz-result');
+    if (correct) {
+        resultElement.innerText = "Bien joué ! Vous avez identifié toutes les fausses informations.";
+        setTimeout(function() {
+            window.location.href = 'victoire.html'; 
+			}, 3500);
+    } else {
+        resultElement.innerText = "Certaines de vos réponses sont incorrectes. Essayez encore.";
     }
 }
