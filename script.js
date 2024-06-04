@@ -99,8 +99,8 @@ function checkVaccine() {
     }
 }
 function checkResponse() {
-    const incorrectAnswers = ["question1", "question3", "question4"];
-    const correctAnswers = "question3";
+    const correctAnswers = ["question1","question3","question4"];
+    const incorrectAnswers = "question2";
     let correct = true;
 
     incorrectAnswers.forEach(answer => {
